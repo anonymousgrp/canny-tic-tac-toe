@@ -24,13 +24,13 @@ export default class Board extends Component {
     }
 
     componentDidUpdate() {
-        if (this.props.reset) {            
+        if (this.props.reset) {           
             this.setState((prevState) => {
                 return {
                     ...prevState,
                     prevTurns: this.generateEmptyTurns(),
                     winModel: false,
-                    winningPlayer: 0,
+                    winPlayer: 0,
                     turn: -1
                 }
             }, () => {
