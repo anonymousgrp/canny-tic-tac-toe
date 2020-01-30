@@ -1,0 +1,45 @@
+@import "./sass/colors.scss";
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+.Logo {
+  font-size: 3.5rem;
+  text-align: center;
+  padding: 1rem 0;
+  color: $colorPrimary;
+  letter-spacing: .2rem;  
+}
+
+.GameBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 60%;
+  height: 70%;
+  border-radius: 2rem;
+  color: $colorPrimary;
+  margin-top: 2rem;
+}
+
+.Btn,
+.Btn:active {
+  font-size: 2rem;
+  cursor: pointer;
+  transition: .2s;
+  text-decoration: none;
+  color: $colorPrimary;
+
+  &:hover {
+    letter-spacing: .1rem;
+  }
+
+  &:active {
+    letter-spacing: 0;
+  }
+}
