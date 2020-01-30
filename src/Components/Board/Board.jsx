@@ -31,7 +31,8 @@ export default class Board extends Component {
                     prevTurns: this.generateEmptyTurns(),
                     winModel: false,
                     winPlayer: 0,
-                    turn: -1
+                    turn: -1,
+                    winMessage: null
                 }
             }, () => {
                 this.props.onResetDone()
@@ -81,6 +82,20 @@ export default class Board extends Component {
             }
         }
 
+        let isFull = true
+        for (let val of this.state.prevTurns) {
+            if (val == ' ') {
+                isFull = false
+            }
+        }
+
+        if (isFull) {
+            this.setState({
+                winMessage: 'Match Draw',
+                winModel: true
+            })
+        }
+
         return ' '
     }
 
@@ -95,7 +110,7 @@ export default class Board extends Component {
                     {this.state.prevTurns.map((data, index) => <div className='Box' key={index} onClick={() => this.boxClickHandler(index)}>{data}</div>)}
                 </div>
                 {this.state.winModel && <div className='Model'>
-                    Player {this.state.winPlayer} Won!
+                    {this.state.winMessage ? this.state.winMessage : "Player " + this.state.winPlayer + " Won!"}
                     <a onClick={() => {
                         this.setState({
                             winModel: false
